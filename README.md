@@ -1,36 +1,37 @@
-# Hometask
+# SQR Project
 
 ### Description
-You should build project from scratch for react development. Your application should have ability to register user and login. For authorized users application should display secret persons. How to style and display elements is your choice, but all data comes from API should be displayed.
 
-API is available as scratch server in /server/index.js. Just run it in terminal by `node /server/index.js`
+An application with the ability to register user and login. For authorized users application displays form with cake attributes and presents design examples. Sends the form in the telegram chat.
 
-Optional - try to setup route to display certain secret user by id (not for 
-bonus point)
+API for the authorization is available as scratch server in /server/index.js. (Just run it in terminal by `node /server/index.js`)
 
-### Requirements
+### Done
+
 - Custom webpack config
 - Custom babel config
 - Routes for login and register
-- css-modules or styled-components
-- header with any png logo (logo should be bundled with webpack), title and links to login and register
-- footer with your innopolis email
-- http requests to given API
-- for authorized user display secret persons on home page
-- [OPTIONAL] route for certain secret person with person description displayed
-
+- styled-components
+- header with any png logo (logo should be bundled with webpack?), title and links to login and register
+- http requests to the Server API
+- external API for cake Images
+- for authorized user display the form
 
 ---
+
 ### Server API
+
 `POST /register`
 accepts login and password to create user
+
 ```
 // Request
 {
     "login": "string",
     "password": "string"
 }
-``` 
+```
+
 ```
 // Response
 200 - if register succeded
@@ -42,15 +43,18 @@ accepts login and password to create user
 ```
 
 ---
+
 `POST /login`
 validates user login and password, provide session token
+
 ```
 // Request
 {
     "login": "string",
     "password": "string"
 }
-``` 
+```
+
 ```
 // Response
 200 - success
@@ -62,53 +66,3 @@ validates user login and password, provide session token
     "message": "string"
 }
 ```
-
----
-`GET /info`
-provide info of secret people, on each server start set of people is different
-```
-// Request
-no params
-Required "Authorization" header with session token
-
-//Response 
-401 - invalid auth
-
-200
-[
-    {
-        "id": "string",
-        "name": "string",
-        "email": "string",
-        "avatar": "string",
-        "address": "string",    
-    }
-]
-```
-
----
-`GET /info/:id`
-Returns info about secret person with provided id
-```
-// Request
-no params
-Required "Authorization" header with session token
-
-//Response 
-401 - invalid auth
-
-404 - person not found
-
-200
-[
-    {
-        "id": "string",
-        "name": "string",
-        "email": "string",
-        "avatar": "string",
-        "address": "string",
-        "description": "string"   
-    }
-]
-```
-

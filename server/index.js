@@ -5,7 +5,6 @@ const bcrypt = require("bcrypt");
 const cors = require("cors");
 
 const PORT = 3003;
-const SECRET = "secret key";
 const SALT_ROUNDS = 3;
 const app = express();
 

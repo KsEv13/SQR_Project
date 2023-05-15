@@ -1,16 +1,14 @@
 import styled from 'styled-components'
-import blobBackground from '../../assets/blobs.png'
-
-const windowInnerWidth = document.documentElement.clientWidth
-const windowInnerHeight = document.documentElement.clientHeight
 
 export const LayoutStyled = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  font-family: 'Montserrat', sans-serif;
   display: flex;
   flex-flow: column;
   margin: 0;
-  width: ${windowInnerWidth};
-  height: ${windowInnerHeight};
+  width: ${document.documentElement.clientWidth};
+  height: 100%;
+  height: auto;
+  overflow: auto;
   align-items: center;
-  background: url('${blobBackground}') no-repeat;
-  background-size: 100%;
 `

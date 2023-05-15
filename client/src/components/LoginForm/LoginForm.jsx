@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from '../ui/Form/Form'
+import Form from '../Form/Form'
 import Input from '../ui/Input/Input'
 import { LoginFormStyled } from './LoginForm.styled'
 
@@ -8,9 +8,15 @@ function LoginForm({ onSubmit, title, buttonText, error }) {
     <LoginFormStyled>
       <h2>{title}</h2>
       <Form onSubmit={onSubmit} defaultValues={{ login: '', password: '' }}>
-        <Input name="login" label="Login" rules={{ required: { message: 'Login is required', value: true } }} />
+        <Input
+          name="login"
+          id="login"
+          label="Login"
+          rules={{ required: { message: 'Login is required', value: true } }}
+        />
         <Input
           name="password"
+          id="password"
           label="Password"
           type="password"
           rules={{
@@ -18,8 +24,10 @@ function LoginForm({ onSubmit, title, buttonText, error }) {
             minLength: { message: 'Password must be at least 8 characters', value: 8 }
           }}
         />
-        {error && <p>{error}</p>}
-        <button type="submit">{buttonText}</button>
+        <div>{error && <p>{error}</p>}</div>
+        <button className="submit" type="submit">
+          {buttonText}
+        </button>
       </Form>
     </LoginFormStyled>
   )
